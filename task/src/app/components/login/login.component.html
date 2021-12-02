@@ -1,0 +1,36 @@
+<div class="main">
+  <div class="container">
+    <div class="header">
+      <img class="img1" alt="Workflow" src="assets/images/task Image.jpeg">
+
+    <h2 class="title" align="center">American Diesel (Client)</h2>
+    </div>
+    <!-- Invalid -->
+    <!-- <div class="invalid">
+      <p class="invalid-txt">Invalid email or password</p>
+    </div> -->
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="input-box">
+        <mat-label>Email address</mat-label>
+        <input class="input-txt-box" matInput placeholder="Email address" type="email" formControlName="emai">
+        <mat-error>Please fill email Format </mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance="outline" class="input-box">
+        <mat-label>Password</mat-label>
+        <input class="input-txt-box" matInput formControlName="pasw" type="password" placeholder="Password">
+        <mat-error>please fill Password</mat-error>
+      </mat-form-field>
+
+      <div class="footer">
+        <a class="forgotpass" routerLink="/forgetpassword">Forgot your password?</a>
+
+        <button class="login-btn" mat-raised-button color="primary" type="submit" [disabled]="!form.valid" routerLink='/table'>Log in</button>
+
+      </div> 
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "./login-variable.component.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $main-color;
+}
+
+.container {
+  width: 480px;
+  height: 509px;
+  border-radius: 10px;
+  background: $color-white;
+  padding: 3rem;
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 4%);
+}
+
+.img1 {
+  margin: 0px 168px;
+  width: 48px;
+  height: 48px;
+}
+
+.title {
+  margin: 18px 0 0;
+  font-size: $font-size-m;
+  font-weight: $font-weight-500;
+  font-family: $font-san-serif;
+  line-height: 1.5;
+  color: $title-color;
+}
+
+.invalid {
+  margin:32px 0 0;
+  width: 384px;
+  height: 44px;
+  border-radius: 4px;
+  background: $invalid-back-color;
+  color: $invalid-color;
+}
+
+.invalid-txt {
+  font-family: $font-san-serif;
+  padding: 10px 0 0 12px;
+  font-weight: $font-weight;
+}
+
+.input-box {
+  width: 384px;
+  height: 55px;
+  border-radius: 4px;
+  font-family: $font-san-serif;
+  font-weight: $font-weight;
+  border-color: $input-box-border;
+}
+
+.input-box:nth-child(1){
+  margin-top: 28px;
+}
+
+.input-box:nth-child(4){
+  margin-top: 4px;
+}
+
+.input-txt-box{
+  padding-bottom: 4px;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.forgotpass {
+  margin-top: 14px;
+  text-decoration: none;
+  color: $color-blue;
+  font-size: $font-size-s;
+  font-family: $font-san-serif;
+}
+
+.login-btn {
+  margin-top: 4px;
+  background-color: $color-blue;
+  width: 70px;
+  height: 39px;
+  font-size: $font-size-s;
+  font-family: $font-san-serif;
+  font-weight: $font-weight-400;
+}
+
+
+

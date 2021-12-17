@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import LoginComponent from './components/login/login.component';
 import { TableComponent } from './components/table/table.component';
 import { TestuComponent } from './components/testu/testu.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
 
@@ -11,8 +12,9 @@ const routes: Routes = [
    {path:'forgetpassword', component:ForgetPasswordComponent},
    {path:'table',component:TableComponent},
    {path:'testu',component:TestuComponent},
-   {path:'',redirectTo:'/login',pathMatch:'full'}
-
+   {path:'notfound',component:NotFoundComponent},
+   {path:'',redirectTo:'/login',pathMatch:'full'},
+   {path:'**',redirectTo:'/notfound',pathMatch:'full'}
 
 ];
 

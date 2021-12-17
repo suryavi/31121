@@ -20,6 +20,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { TestuComponent } from './components/testu/testu.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
+import { CustomstyleDirective } from './customstyle.directive';
+import { NotFoundComponent } from './not-found/not-found.component';
+import {HttpService} from './http.service';
 
 @NgModule({
   declarations: [
@@ -28,16 +33,18 @@ import { TestuComponent } from './components/testu/testu.component';
     ForgetPasswordComponent,
     TableComponent,
     TestuComponent,
+    CustomstyleDirective,
+    NotFoundComponent,
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,MatCardModule,
     MatFormFieldModule,ReactiveFormsModule,FormsModule,HttpClientModule,MatTabsModule,MatIconModule,
     BrowserAnimationsModule,MatInputModule,MatButtonModule,MatTableModule,MatPaginatorModule,MatDividerModule,MatDialogModule,
-    MatMenuModule,MatSidenavModule
+    MatMenuModule,MatSidenavModule,MatTooltipModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -136,15 +136,15 @@ $font-weight-600: 600;
   }
 
   //Disable Button action
-  .disab{
-    border: 2px solid ;
-    border-radius: 6px;
-    margin-left: 8px;
-  }
-  .disab1{
-    border: 2px solid ;
-    border-radius: 6px;
-  }
+  // .disab{
+  //   border: 2px solid ;
+  //   border-radius: 6px;
+  //   margin-left: 8px;
+  // }
+  // .disab1{
+  //   border: 2px solid ;
+  //   border-radius: 6px;
+  // }
   //pagination
   // .mat-paginator-container{
   //   padding: 0 34px;
@@ -192,6 +192,8 @@ $font-weight-600: 600;
   }
   .mat-flat-button.mat-primary{
     width: 90%;
+    height: 50px;
+    margin-left: 24px;
   }
 
   .mat-button{
@@ -350,7 +352,7 @@ td:hover .content_copy {
   margin-left: 8px;
 }
 
-.delete-btn:hover{
+.delete-btn:focus{
   background-color: $light-coral;
   color: $color-white;
 }
@@ -361,10 +363,9 @@ td:hover .content_copy {
   color:$dodgerblue ;
   border-radius: 5px;
   border-width: 2px;
-  // margin-left: 8px;
 }
 
-.restore-btn:hover{
+.restore-btn:focus{
   background-color: $dodgerblue;
   color: $color-white;
 }

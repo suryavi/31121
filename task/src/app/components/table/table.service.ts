@@ -65,20 +65,20 @@ export class TableService {
 //       console.log(error);
 //     }
 //     )};
-    StatusRetClient(ids:any){
-      this.service.putclientdel(ids).subscribe((response)=>{
-          console.log(response);
-      })
-   }
-    StatusCamp(ids:any){
-       this.service.statusCamp(ids).subscribe((response)=>{
-       });
-   }
-   deleteData(ids:any){
-     this.service.delete(ids).subscribe((response)=>{
-        console.log(response);
-     })
-   }
+    // StatusRetClient(ids:any){
+      // this.service.putclientdel(ids).subscribe((response)=>{
+          // console.log(response);
+      // })
+  //  }
+    // StatusCamp(ids:any){
+      //  this.service.statusCamp(ids).subscribe((response)=>{
+      //  });
+  //  }
+  //  deleteData(ids:any){
+    //  this.service.delete(ids).subscribe((response)=>{
+        // console.log(response);
+    //  })
+  //  }
 }
 
 

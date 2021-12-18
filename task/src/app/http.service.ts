@@ -38,9 +38,9 @@ export class HttpService {
      })
    )
   }
- putclientdel(id:any):Observable<any>{
-  // console.log("posting",id);
-  return this.http.put(`${this.client}/${id}`,id).
+ putclientdel(id:any,stats:any):Observable<any>{
+  console.log("posting",id,stats);
+  return this.http.put(`${this.client}/${id}/${stats}`,id,stats).
   pipe(
     tap(()=>{
       this.refreshNeeds.next();
@@ -57,9 +57,9 @@ delete(id:any):Observable<any>{
   )
 }
 
-statusCamp(id:any):Observable<any>{
-  console.log(id);
-  return this.http.put(`${this.campaign}/${id}`,id).
+statusCamp(id:any,status:any):Observable<any>{
+  console.log(id,status);
+  return this.http.put(`${this.campaign}/${id}/${status}`,id,status).
   pipe(
     tap(()=>{
       this.refreshNeeds.next();
@@ -71,4 +71,5 @@ statusCamp(id:any):Observable<any>{
 //    return this.http.get(`${this.client}`,data)
 //  }
 }
+
 

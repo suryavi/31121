@@ -19,7 +19,7 @@ const dbName = 'American_diesel';
 const collect1 = "dashboard";
 const collect2 = "clients";
 const collect3 = "campaigns";
-var sta = true;
+// var sta = true;
 
 // dashboard  get 
 app.get('/dashboard',(req,res)=> {
@@ -29,7 +29,7 @@ app.get('/dashboard',(req,res)=> {
     collection.find({}).toArray(function(err,list) {   
           assert.equal(err, null);
           //   console.log("Found the following records");
-          console.log(list)
+          // console.log(list)
         res.json(list);
          
         });
@@ -120,18 +120,26 @@ app.get('/clients/:ids',(req,res)=>{
 });
 
 /* update client status*/
-app.put('/clients/:ids',(req,res)=>{
+app.put('/clients/:ids/:stat',(req,res)=>{
     console.log(req.params.ids,"getting id");
-    sta = !sta;
- let date  = new Date();
- date.toISOString();
- console.log(sta);
+    console.log(req.params.stat,"getting status");
+    let date  = new Date();
+    date.toISOString();
+    var stat = req.params.stat;
+   var status
+  //  var status = Boolean(stat);
+  if(stat == "true"){
+     status = false;
+  } else {
+     status = true;
+  }
+ console.log(status);
 //  console.log(date) 
     // res.send({message:"Hello"});
     let ids = req.params.ids;                                           
         const db = client.db(dbName);
         const collection = db.collection(collect2);
-        collection.updateMany({ "_id.oid": ids },{$set:{"is_deleted": sta , "updated_at":{date}}},{ upsert: true },function(err,result){
+        collection.updateMany({ "_id.oid": ids },{$set:{"is_deleted": status , "updated_at":{date}}},{ upsert: true },function(err,result){
               
           if (err) throw err; 
              assert.equal(null,err);
@@ -176,18 +184,25 @@ app.get('/campaigns/:ids',(req,res)=>{
 });
 
 /*campaigns status upload */
- app.put('/campaigns/:ids',(req,res)=>{
+ app.put('/campaigns/:ids/:status',(req,res)=>{
   // sta is the boolean check for is_delete
-     sta = !sta;
+  console.log("Geted status = >",req.params.status);
+  var status;
+  let stat = req.params.status;
+   if(stat == "true"){
+     status = false;
+   } else {
+     status = true;
+   }
   let date  = new Date();
   date.toISOString();
-  console.log(sta);
+  console.log(status);
  //  console.log(date) 
      // res.send({message:"Hello"});
      let ids = req.params.ids;                                           
          const db = client.db(dbName);
          const collection = db.collection(collect3);
-         collection.updateMany({ "_id.oid": ids },{$set:{"is_deleted": sta , "updated_at":{date}}},{ upsert: true },function(err,result){
+         collection.updateMany({ "_id.oid": ids },{$set:{"is_deleted": status , "updated_at":{date}}},{ upsert: true },function(err,result){
                
            if (err) throw err; 
               assert.equal(null,err);

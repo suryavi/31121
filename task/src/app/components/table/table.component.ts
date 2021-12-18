@@ -59,14 +59,14 @@ this.service.getclient().subscribe((response)=>{
   this.clientlist.paginator = this.paginator.toArray()[0];
  });
 }
-StatusRetClient(ids:any){
-  this.service.putclientdel(ids).subscribe((response)=>{
-      console.log(response);
+StatusRetClient(ids:any,stat:any){
+  this.service.putclientdel(ids,stat).subscribe((response)=>{
+      // console.log(response);
   })
 }
-StatusCamp(ids:any){
-   this.service.statusCamp(ids).subscribe((response)=>{
-     console.log(response)
+StatusCamp(ids:any,status:any){
+   this.service.statusCamp(ids,status).subscribe((response)=>{
+    //  console.log(response)
    });
 }
 deleteData(ids:any){
@@ -91,29 +91,29 @@ deleteData(ids:any){
   //  refresh() {
   //    window.location.reload()
   //  }
-  del(id:any){ 
+  del(id:any,stat:any){ 
     // status retire
-    this.StatusRetClient(id);
+    this.StatusRetClient(id,stat);
     this.kumar = "disab"                      // button hover class
     this.kumar1 = "restore-btn"; 
     // this.refresh()
   }
 
-  ret(id:any){
+  ret(id:any,stat:any){
     // status retire
-    this.StatusRetClient(id);
+    this.StatusRetClient(id,stat);
     this.kumar = "btn-mat-icon delete-btn";   // button hover Class 
     this.kumar1 = "disab1";
     // this.refresh();
   };
   check =true;
-  chec(id:any){
+  chec(id:any,status:any){
     this.check = false;
-    this.StatusCamp(id);
+    this.StatusCamp(id,status);
   };
-  inprog(id:any){
+  inprog(id:any,status:any){
     this.check = true;
-    this.StatusCamp(id);
+    this.StatusCamp(id,status);
   };
   deleteFun(id:any){
     console.log(id);

@@ -20,9 +20,9 @@ $font-weight-500: 500;
 $font-weight-600: 600;
 
 :host::ng-deep {
-  .mat-tab-body{
-    height: 90vh;
-  }
+  // .mat-tab-body{
+  //   height: 90vh;
+  // }
   .mat-tab-nav-bar,
   .mat-tab-header {
     border-bottom: none;
@@ -80,24 +80,26 @@ $font-weight-600: 600;
     font-family: $font-Source-Sans;
   }
 
+  
   .total-table{
     width: 100%;
-    padding-top: 40px;
+    padding-top: 30px;
     padding-left: 34px;
     padding-right: 34px;
-    padding-bottom: 0px;
-    border-radius: 8px;
+    padding-bottom: 20px;
   } 
   
   thead {
-     display: table; /* to take the same width as tr */
-     // width: calc(100% - 17px); /* - 17px because of the scrollbar width */
+     display: table; 
   }
 
   tbody {
-    display: block; /* to enable vertical scrolling */
-    max-height: 300px;
-    overflow-y: scroll; /* keeps the scrollbar even if it doesn't need it; display purpose */
+    display: block; 
+    max-height: 480px;
+    overflow-y: scroll; 
+}
+  th.mat-header-cell:first-of-type{
+    width: 210px;
 }
 
   th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
@@ -135,20 +137,9 @@ $font-weight-600: 600;
     font-size: 16px;
   }
 
-  //Disable Button action
-  // .disab{
-  //   border: 2px solid ;
-  //   border-radius: 6px;
-  //   margin-left: 8px;
-  // }
-  // .disab1{
-  //   border: 2px solid ;
-  //   border-radius: 6px;
-  // }
-  //pagination
-  // .mat-paginator-container{
-  //   padding: 0 34px;
-  // }
+  .mat-paginator-container{
+    font-family: $font-Source-Sans;
+  }
   .mat-paginator {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -181,7 +172,7 @@ $font-weight-600: 600;
   }
 
   .mat-drawer.mat-drawer-end{
-    position: fixed;  
+    position: fixed; 
     right: 0;
     width: 415px;
     height: 100%;
@@ -191,9 +182,11 @@ $font-weight-600: 600;
     height: 40px;
   }
   .mat-flat-button.mat-primary{
+    cursor: pointer;
     width: 90%;
     height: 50px;
     margin-left: 24px;
+    margin-top: 24px;
   }
 
   .mat-button{
@@ -207,11 +200,12 @@ $font-weight-600: 600;
   }
   
   .mat-form-field-appearance-outline .mat-form-field-wrapper{
-    padding:10px 20px;
+    padding: 20px 20px;
   } 
 
   .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper{
-    padding: 16px;
+    padding-top: 8px;
+    padding-left: 0 !important;
   }
 }
 
@@ -224,19 +218,31 @@ $font-weight-600: 600;
 .container {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
-.icons {
+
+.person-btn{  
   display: flex;
   justify-content: space-between;
   position: absolute;
   top:15px;
-  right: 45px;
+  right: 25px;
+  width: 35px;
+  height: 35px;
+}
+.person_pin {
+  color: darkgray;
+  font-size: 35px;
+  padding-top: 6px;
+}
+.mat-menu-item .menu{
+  color: black;
+}
+.mat-menu-item:hover .menu{
+  color: $color-blue;
 }
 
-.person_pin {
-  font-size: 40px;
-}
 
 .logo {
   position: absolute;
@@ -291,7 +297,11 @@ $font-weight-600: 600;
   background-color: $color-white;
   box-shadow: 0 0px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
 }
+.card:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0px 15px -3px rgb(0 0 0 / 20%), 0 4px 6px -2px rgb(0 0 0 / 10%);
 
+}
 .Campaigns{
   display: flex;
   justify-content: space-between;
@@ -304,7 +314,13 @@ $font-weight-600: 600;
   background-color: $color-white;
   cursor: pointer;
 }
-
+.mail{
+  margin-top: -40px;
+  margin-left: 70px;
+}
+.ph-n{
+  margin-left: 5px;
+}
 .content_copy {
   color: $content-copy-icon-color;
   opacity: 0;
@@ -392,13 +408,42 @@ td:hover .content_copy {
 }
 
 .clear-btn{
+  cursor: pointer;
   width: 50px;
   height: 50px;
+  margin-top: 6px;
   background: $color-white;
   color:  $color-black;
   border: $color-white;
 }
+.clear-icon{
+  font-size: 25px;
+}
+
 .in-progress{
   color: red;
 }
+
+.bg-red{
+  border-radius: 6px;
+  background: #ff00000a;
+  padding:2px 3px;
+}
+.bg-green {
+  border-radius: 6px;
+  background-color: #00800017;
+  padding: 2px 3px;
+}
+.name-div{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80px;
+}
+.sorry{ 
+  margin: 300px;
+  text-align: center;
+}
+
+
 

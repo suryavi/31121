@@ -1,6 +1,6 @@
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Text } from '@angular/compiler/src/render3/r3_ast';
-import { AfterViewInit, Component, OnChanges, OnInit, QueryList, SimpleChanges, ViewChild, ViewChildren, ɵɵqueryRefresh } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, QueryList, SimpleChanges, ViewChild, ViewChildren, ɵɵqueryRefresh } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,13 +10,14 @@ import {client , campaign} from '../dto/Datas.dto';
 import { HttpClient } from '@angular/common/http';
 import { Router, Navigation } from '@angular/router';
 import { async } from 'rxjs';
-import { MatDrawer } from '@angular/material/sidenav';
+import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
+import LoginComponent from '../login/login.component';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
       
       dashboardlist: any;
       column: string[] = ['Name','phone','company','invitation','status','created','updated','Action'];   
@@ -29,15 +30,23 @@ export class TableComponent {
       arr2 : any[] = [];
       arr3 : any[] = [];
       arr4 : any[] = [];
-     
+      hasBackdrop : any = true;
+      // mode : any = "over";
+      datas1 : any;
   constructor(private service : HttpService,private Tservice : TableService,private http:HttpClient) 
-  {    
+  {     
+    
     this.service._refreshNeeds.subscribe(() => {
       this.getclient();
       this.getcampaign();
     })
     this.getclient();
     this.getcampaign();
+  }
+  ngOnInit() {
+   var datas =  window.localStorage.getItem('data');
+      console.log(datas);
+      this.datas1 = datas;
   }
   execute = false;
   // getdash(){
@@ -153,8 +162,11 @@ deleteData(ids:any){
     console.log(response);
  })
 }
+  
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
- 
+  @Input() mode = {} as MatDrawerMode
+  
+  
   // date Variables and Method   
   date = new Date();
   // Create date
@@ -242,4 +254,8 @@ deleteData(ids:any){
 
 
 
+
+function data(data: any) {
+  throw new Error('Function not implemented.');
+}
 

@@ -13,7 +13,7 @@ export default class LoginComponent implements OnInit {
 
    
   constructor() { }
-
+  datas : any ;
   ngOnInit(): void {
 
   }
@@ -23,11 +23,10 @@ export default class LoginComponent implements OnInit {
     pasw : new FormControl('',Validators.required),
 
   });
-
-  onSubmit(){
-
-  console.log(this.form.value);
   
-  } 
+  onSubmit(data:any){
+  console.log(data);
+  window.localStorage.setItem('data',this.form.value.emai);
+  }
 
 }

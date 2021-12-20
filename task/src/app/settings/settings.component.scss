@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+// @import "./settings_variable.component.scss";
+
+$font-size-s: 14px;
+$font-size-m: 24px;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight: 600;
+$backcolor: red;    
+$font-roboto: 'Roboto', sans-serif;
+$font-san-serif: 'Source Sans Pro', sans-serif;
+$main-color: #f7fafc;
+$title-color: #2d333a;
+$invalid-color: #EE4B2B;
+$invalid-back-color: #FFDFDF;
+$input-box-border: #e2e8f0;
+$color-white: #fff;
+$color-blue: #5a67d8;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $main-color;
+}
+
+.container {
+  width: 480px;
+  height: 509px;
+  border-radius: 10px;
+  background: $color-white;
+  padding: 3rem;
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 4%);
+}
+
+.img1 {
+  margin: 0px 168px;
+  width: 48px;
+  height: 48px;
+}
+
+.title {
+  margin: 18px 0 0;
+  font-size: $font-size-m;
+  font-weight: $font-weight-500;
+  font-family: $font-san-serif;
+  line-height: 1.5;
+  color: $title-color;
+}
+
+.invalid {
+  margin:32px 0 0;
+  width: 384px;
+  height: 44px;
+  border-radius: 4px;
+  background: $invalid-back-color;
+  color: $invalid-color;
+}
+
+.invalid-txt {
+  font-family: $font-san-serif;
+  padding: 10px 0 0 12px;
+  font-weight: $font-weight;
+}
+
+.input-box {
+  width: 384px;
+  height: 55px;
+  border-radius: 4px;
+  font-family: $font-san-serif;
+  font-weight: $font-weight;
+  border-color: $input-box-border;
+}
+
+.input-box:nth-child(1){
+  margin-top: 28px;
+}
+
+.input-box:nth-child(4){
+  margin-top: 4px;
+}
+
+.input-txt-box{
+  padding-bottom: 4px;
+}
+
+// .footer{
+//   display: flex;
+//   justify-content: space-between;
+//   margin-top: 24px;
+// }
+
+// .forgotpass {
+//   margin-top: 14px;
+//   text-decoration: none;
+//   color: $color-blue;
+//   font-size: $font-size-s;
+//   font-family: $font-san-serif;
+// }
+
+
+.confirm-btn  {
+  text-transform: uppercase;
+  margin-top: 34px;
+  float: right;
+  background-color: $color-blue;
+  width: 100%;
+  height: 50px;
+  font-size: $font-size-s;
+  font-family: $font-san-serif;
+  font-weight: $font-weight-400;
+  color: #fff;
+}
+
+
+

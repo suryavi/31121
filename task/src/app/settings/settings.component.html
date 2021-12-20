@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="container">
+      <div class="header">
+        <img class="img1" alt="Workflow" src="assets/images/logo.jpeg">
+        
+        <h2 class="title" align="center">American Diesel</h2>
+      </div>
+      <form [formGroup]="form1">
+        <mat-form-field appearance="outline" class="input-box">
+          <mat-label>Old Password</mat-label>
+          <input class="input-txt-box" matInput placeholder="Old Password" type="password" formControlName="old">
+          <mat-error>Please fill old password</mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field appearance="outline" class="input-box">
+          <mat-label>New Password</mat-label>
+          <input class="input-txt-box" matInput formControlName="pasw" type="password" placeholder="Password">
+          <mat-error>Please fill new Password</mat-error>
+        </mat-form-field>
+
+          <button class="confirm-btn " mat-raised-button color="primary" type="submit"  [disabled]="!form1.valid"
+            routerLink='/login'>Confirm</button>
+        </form>
+        </div>
+
+  </div>
+  

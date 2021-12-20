@@ -25,6 +25,9 @@ import {MatCardModule} from '@angular/material/card';
 import { CustomstyleDirective } from './customstyle.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {HttpService} from './http.service';
+import {MAT_TABS_CONFIG } from '@angular/material/tabs';
+import { SettingsComponent } from './settings/settings.component'
+import { MatOptionModule } from '@angular/material/core';   
 
 @NgModule({
   declarations: [
@@ -35,16 +38,17 @@ import {HttpService} from './http.service';
     TestuComponent,
     CustomstyleDirective,
     NotFoundComponent,
+    SettingsComponent,
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,MatCardModule,
+    AppRoutingModule,MatCardModule,MatOptionModule,
     MatFormFieldModule,ReactiveFormsModule,FormsModule,HttpClientModule,MatTabsModule,MatIconModule,
     BrowserAnimationsModule,MatInputModule,MatButtonModule,MatTableModule,MatPaginatorModule,MatDividerModule,MatDialogModule,
     MatMenuModule,MatSidenavModule,MatTooltipModule
   ],
-  providers: [HttpService],
+  providers: [HttpService,{provide : MAT_TABS_CONFIG, useValue: { animationDuration : '0ms' }}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

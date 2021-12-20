@@ -17,28 +17,16 @@ export interface Int{
   templateUrl: './testu.component.html',
   styleUrls: ['./testu.component.scss']
 })
-export class TestuComponent implements OnInit,AfterViewInit {
+export class TestuComponent  {
  
   constructor(private service:HttpService) {   
 }
-   disCol : string[] = [ 'name', 'company' , 'email'];
-   
-   listdata = new MatTableDataSource();
-  
-   @ViewChild(MatPaginator) paginator = {} as MatPaginator;
+
    
   ngOnInit() {
-     
-      this.service.getclient().subscribe(list => {
-      let aray : any  = list
-      console.log(list); 
-      this.listdata  = new MatTableDataSource(aray);
-      this.listdata.paginator = this.paginator;
-      });
+    
+  }
 
-  }
-  ngAfterViewInit() {
-  }
 }
 
 

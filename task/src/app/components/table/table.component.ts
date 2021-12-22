@@ -1,6 +1,6 @@
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Text } from '@angular/compiler/src/render3/r3_ast';
-import { AfterViewInit, Component, Input, OnChanges, OnInit, QueryList, SimpleChanges, ViewChild, ViewChildren, ɵɵqueryRefresh } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, OnInit, QueryList, SimpleChanges, ViewChild, ViewChildren, ɵɵqueryRefresh } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,6 +12,7 @@ import { Router, Navigation } from '@angular/router';
 import { async } from 'rxjs';
 import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
 import LoginComponent from '../login/login.component';
+import { MatTabGroup } from '@angular/material/tabs';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -47,6 +48,7 @@ export class TableComponent implements OnInit {
    var datas =  window.localStorage.getItem('data');
       console.log(datas);
       this.datas1 = datas;
+      // this.draw ="push"
   }
   execute = false;
   // getdash(){
@@ -115,9 +117,7 @@ getdash(){
     assignedCampaigns:assignedCampaigns,
     completedCampaigns : completedCampaigns
   }
-  
 }
-
 getcampaign(){
   this.service.getcampaign().subscribe( (response)=>{
     let  data1 = response;
@@ -127,7 +127,6 @@ getcampaign(){
     // this.once1();
     this.campaignslist = new MatTableDataSource(this.arr3);
     this.campaignslist.paginator = this.paginator.toArray()[1];
-    
   })
 }
 getclient(){
@@ -159,14 +158,27 @@ StatusCamp(ids:any,status:any){
 }
 deleteData(ids:any){
  this.service.delete(ids).subscribe((response)=>{
-    console.log(response);
+  console.log(response);
  })
 }
+
+@ViewChild('drawer') draw = {} as MatDrawer;
+@ViewChild("tap") mattap = {} as ElementRef;
+ opened = false;
+ di = false;
+
+  onclick(){
+     this.opened = true;
+     this.di = true;
+     this.profileForm.reset();
+  }
+  onclic(){
+     this.opened = false;
+     this.di = false;
+  }
   
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
-  @Input() mode = {} as MatDrawerMode
-  
-  
+    
   // date Variables and Method   
   date = new Date();
   // Create date
@@ -239,8 +251,9 @@ deleteData(ids:any){
          console.log(res);
        })
      }
-     this.profileForm.reset();
-    
+     this.profileForm.reset(); 
+     this.opened = false;
+     this.di = false;
   } 
 
   copyfunc(Text:any) 
@@ -251,9 +264,6 @@ deleteData(ids:any){
     },)
    }
   }
-
-
-
 
 function data(data: any) {
   throw new Error('Function not implemented.');

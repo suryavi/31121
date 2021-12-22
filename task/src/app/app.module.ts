@@ -28,6 +28,7 @@ import {HttpService} from './http.service';
 import {MAT_TABS_CONFIG } from '@angular/material/tabs';
 import { SettingsComponent } from './settings/settings.component'
 import { MatOptionModule } from '@angular/material/core';   
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { MatOptionModule } from '@angular/material/core';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,MatCardModule,MatOptionModule,
+    AppRoutingModule,MatCardModule,MatOptionModule,MatStepperModule,
     MatFormFieldModule,ReactiveFormsModule,FormsModule,HttpClientModule,MatTabsModule,MatIconModule,
     BrowserAnimationsModule,MatInputModule,MatButtonModule,MatTableModule,MatPaginatorModule,MatDividerModule,MatDialogModule,
     MatMenuModule,MatSidenavModule,MatTooltipModule

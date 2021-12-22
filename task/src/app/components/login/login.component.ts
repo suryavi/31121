@@ -17,13 +17,11 @@ export default class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  
   form = new FormGroup({
     emai : new FormControl('',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{3,4}$')]), 
-    pasw : new FormControl('',Validators.required),
+    pasw : new FormControl('',[Validators.required,Validators.maxLength(6)]),
 
   });
-  
   onSubmit(data:any){
   console.log(data);
   window.localStorage.setItem('data',this.form.value.emai);
